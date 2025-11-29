@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Css/tunelamento.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+    <title>Tunelamento Quântico - Projeto Feira de Ciências</title>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="/Css/Assets/Carregamento.png" alt="Logo">
+            </div>
+            <div class="loader-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="menu">
+            <section class="logo">
+                <img id="logo-normal" src="/Css/Assets/logoSite.png" alt="logo">
+                <img id="logo-scrolled" src="/Css/Assets/logoSiteBranca.png" alt="logo2">
+            </section>
+            <section class="menu-opcoes">
+                <nav>
+                    <ul>
+                        <li><a href="#mega-section-1" class="nav-item">Tunelamento</a></li>
+                        <li><a href="#mega-section-2" class="nav-item">Sol e Fusão</a></li>
+                        <li><a href="#mega-section-3" class="nav-item">Importância</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tunelamento Quântico</h1>
+            <p>A Ponte Invisível entre Partículas e a Vida</p>
+        </div>
+    </section>
+
+    <!-- MEGA SEÇÃO 1: Tunelamento Quântico (Amarelo) -->
+    <section id="mega-section-1" class="mega-section mega-section-1">
+        <div class="container">
+            <!-- Conceito -->
+            <div class="section-header">
+                <span class="section-label">Conceito</span>
+                <h2 class="section-title">O que é Tunelamento Quântico?</h2>
+            </div>
+            <div class="content-card fade-in delay-1">
+                <div class="card-content">
+                    <div class="card-text">
+                        <p class="lead-text">O tunelamento quântico é um fenômeno fascinante da mecânica quântica em que uma partícula consegue atravessar uma barreira de potencial mesmo tendo energia menor do que a altura dessa barreira, algo impossível pela física clássica, mas possível devido ao comportamento ondulatório das partículas.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="/Css/Assets/Placeholder.jpeg" alt="Barreira de Potencial">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Protótipo -->
+            <div class="section-header fade-in delay-2">
+                <span class="section-label">Experimento</span>
+                <h2 class="section-title">Nosso Protótipo: Barreira de Potencial</h2>
+            </div>
+            <div class="content-card fade-in delay-3">
+                <div class="card-content reverse">
+                    <div class="card-image">
+                        <img src="/Css/Assets/barreiradepotencial.jpg" alt="Barreira de Potencial Experimental">
+                    </div>
+                    <div class="card-text">
+                        <p class="lead-text">Nosso protótipo representa uma barreira, conhecida como Barreira de Potencial. Se trata de uma estrutura composta de papelão, tubos de papelão, cola quente, tinta e uma folha de cortiça.</p>
+                        <p>Nós queríamos demonstrar como funciona o Tunelamento Quântico, através de nosso projeto conseguimos realizar o que buscávamos. Usamos bolinhas de gude para representar o Próton, e, quando atravessasse o túnel que fizemos, o ''Próton'' teoricamente teria tunelado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modelo 3D -->
+            <div class="section-header fade-in delay-4">
+                <span class="section-label">Visualização</span>
+                <h2 class="section-title">Modelo 3D Interativo</h2>
+            </div>
+            <div class="modelo-3d-container">
+                <div class="Modelo3D">
+                    <canvas id="canvas3d-1"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEGA SEÇÃO 2: Sol e seu Interior (Vinho) -->
+    <section id="mega-section-2" class="mega-section mega-section-2">
+        <div class="container">
+            <!-- Sol e seu Interior -->
+            <div class="section-header">
+                <span class="section-label">Astrofísica</span>
+                <h2 class="section-title">Sol e seu Interior</h2>
+            </div>
+            <div class="content-card fade-in delay-1">
+                <div class="card-content">
+                    <div class="card-text">
+                        <p class="lead-text">[Texto sobre o Sol e seu interior será adicionado aqui]</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="/Css/Assets/dark-blue-galaxy-space-with-stars-well-use-as-astronomy-backgrou.jpg" alt="Sol e Interior">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Importância da Fusão Nuclear -->
+            <div class="section-header fade-in delay-2">
+                <span class="section-label">Fusão Nuclear</span>
+                <h2 class="section-title">Importância da Fusão Nuclear e a Barreira de Potencial</h2>
+            </div>
+            <div class="content-card fade-in delay-3">
+                <div class="card-content reverse">
+                    <div class="card-image">
+                        <img src="/Css/Assets/Placeholder.jpeg" alt="Fusão Nuclear">
+                    </div>
+                    <div class="card-text">
+                        <p class="lead-text">A fusão nuclear é o processo que alimenta o Sol e outras estrelas, onde núcleos atômicos se combinam para formar elementos mais pesados, liberando enormes quantidades de energia.</p>
+                        <p>O tunelamento quântico desempenha um papel fundamental neste processo. Os prótons no núcleo do Sol precisam superar a barreira de Coulomb - uma força de repulsão eletrostática que normalmente impediria que se aproximassem o suficiente para fundir. No entanto, através do tunelamento quântico, alguns prótons conseguem "atravessar" essa barreira mesmo sem energia suficiente, permitindo que a fusão ocorra. Sem o tunelamento quântico, o Sol não poderia brilhar e a vida na Terra não existiria.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modelo 3D -->
+            <div class="section-header fade-in delay-4">
+                <span class="section-label">Visualização</span>
+                <h2 class="section-title">Modelo 3D Interativo</h2>
+            </div>
+            <div class="modelo-3d-container">
+                <div class="Modelo3D">
+                    <canvas id="canvas3d-2"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEGA SEÇÃO 3: Importância (Laranja) -->
+    <section id="mega-section-3" class="mega-section mega-section-3">
+        <div class="container">
+            <!-- Importância -->
+            <div class="section-header">
+                <span class="section-label">Impacto</span>
+                <h2 class="section-title">Importância da Barreira de Potencial e Fusão Nuclear</h2>
+            </div>
+            <div class="content-card fade-in delay-1">
+                <div class="card-content">
+                    <div class="card-text">
+                        <p class="lead-text">O tunelamento quântico é importante pois permite que partículas atravessem barreiras impossíveis segundo a física clássica, tornando viáveis fenômenos essenciais do universo e tecnologias modernas.</p>
+                        <p>Sem ele, o Sol e outras estrelas não seriam capazes de produzir energia pela fusão nuclear (consequentemente não existiria vida) e muitos dos elementos não seriam produzidos pelas estrelas. É um processo fundamental para entender tanto o funcionamento do cosmos quanto o avanço da eletrônica atual.</p>
+                        <p>Ele possibilita processos que seriam impossíveis pela física clássica, como o brilho do Sol, o funcionamento de tecnologias modernas, incluindo microscópios de alta resolução e memórias eletrônicas. Sem o tunelamento, tanto fenômenos naturais quanto grandes avanços tecnológicos simplesmente não existiriam.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="/Css/Assets/blue-white-starry-night-sky.jpg" alt="Importância do Tunelamento">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agradecimento -->
+            <div class="thanks-section fade-in delay-2">
+                <h3>Obrigado pela Visita!</h3>
+                <p>Agradecemos a todos que visitaram nosso projeto sobre Tunelamento Quântico. Esperamos que tenham aprendido mais sobre este fenômeno fascinante que conecta o mundo quântico ao funcionamento do universo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pop-up de Navegação -->
+    <div class="nav-popup">
+        <button class="nav-popup-toggle" id="navToggle" aria-label="Menu de Navegação">
+            <span id="navIcon">☰</span>
+        </button>
+        <div class="nav-popup-menu" id="navMenu">
+            <h3>Navegação</h3>
+            <a href="../menu.html" class="nav-link menu-link">🏠 Voltar ao Menu</a>
+            <a href="Tunelamento.html" class="nav-link active">⚛️ Tunelamento Quântico</a>
+            <a href="Mecanica.html" class="nav-link">🔬 Mecânica Quântica</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(function() {
+                loader.classList.add('hidden');
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 300);
+        });
+
+        // Sistema de scroll do header com detecção de área clara/escura
+        const header = document.getElementById('mainHeader');
+        let lastScroll = 0;
+
+        function detectDarkArea() {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const scrollPosition = scrollY + viewportHeight / 2;
+            
+            // Verificar se está em área escura (hero ou início/fim das seções)
+            const hero = document.querySelector('.hero');
+            const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 0;
+            
+            // Seções que começam com preto
+            const sections = document.querySelectorAll('.mega-section');
+            let isDarkArea = false;
+            
+            // Hero é sempre escuro
+            if (scrollY < heroBottom * 0.7) {
+                isDarkArea = true;
+            } else {
+                // Verificar início e fim das seções (onde há mais preto)
+                sections.forEach((section, index) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    // Primeiros 20% e últimos 20% de cada seção são mais escuros
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight * 0.2) {
+                        isDarkArea = true;
+                    } else if (scrollPosition >= sectionTop + sectionHeight * 0.8 && scrollPosition < sectionBottom) {
+                        isDarkArea = true;
+                    }
+                });
+            }
+            
+            // Atualizar logo baseado na área
+            if (isDarkArea) {
+                header.classList.add('dark-area');
+            } else {
+                header.classList.remove('dark-area');
+            }
+        }
+
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+
+            // Detectar área clara/escura para logo
+            detectDarkArea();
+
+            // Detectar seção atual e mudar cor do body
+            const sections = document.querySelectorAll('.mega-section');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    document.body.className = '';
+                    if (index === 1) {
+                        document.body.classList.add('section-2');
+                    } else if (index === 2) {
+                        document.body.classList.add('section-3');
+                    }
+                    
+                    // Atualizar link ativo
+                    document.querySelectorAll('.nav-item').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const navLinks = document.querySelectorAll('.nav-item');
+                    if (navLinks[index]) {
+                        navLinks[index].classList.add('active');
+                    }
+                }
+            });
+
+            lastScroll = scrollY;
+        });
+
+        // Detectar área inicial
+        detectDarkArea();
+
+        // Smooth scroll para links do menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Pop-up de Navegação
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navIcon = document.getElementById('navIcon');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                navIcon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navIcon.textContent = '☰';
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navIcon.textContent = '☰';
+                }
+            });
+        }
+
+        // Animação de entrada das seções
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-card, .section-header, .modelo-3d-container, .thanks-section').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Configuração do modelo 3D - Seção 1 (Amarelo)
+        function init3DModel(canvasId, colors) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            const particlesCount = 300;
+            const particlesGroup = new THREE.Group();
+            
+            const ballGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+            const ballMaterial = new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                emissive: 0xffffff,
+                emissiveIntensity: 1.0,
+                metalness: 0.5,
+                roughness: 0.5
+            });
+
+            for(let i = 0; i < particlesCount; i++) {
+                const ball = new THREE.Mesh(ballGeometry, ballMaterial);
+                ball.position.set(
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20
+                );
+                particlesGroup.add(ball);
+            }
+
+            scene.add(particlesGroup);
+
+            const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+            const sphereMaterial = new THREE.MeshStandardMaterial({
+                color: colors.sphereColor,
+                emissive: colors.emissiveColor,
+                emissiveIntensity: 2.0,
+                metalness: 0.8,
+                roughness: 0.2
+            });
+            const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+            scene.add(sphere);
+
+            for(let i = 0; i < 3; i++) {
+                const ringGeometry = new THREE.RingGeometry(1.5 + i * 0.8, 1.6 + i * 0.8, 64);
+                const ringMaterial = new THREE.MeshBasicMaterial({
+                    color: colors.ringColors[i % colors.ringColors.length],
+                    side: THREE.DoubleSide,
+                    transparent: true,
+                    opacity: 0.9
+                });
+                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                ring.rotation.x = Math.PI / 2;
+                ring.rotation.y = i * Math.PI / 3;
+                scene.add(ring);
+            }
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+            scene.add(ambientLight);
+            
+            const pointLight1 = new THREE.PointLight(colors.lightColor1, 4);
+            pointLight1.position.set(5, 5, 5);
+            scene.add(pointLight1);
+            
+            const pointLight2 = new THREE.PointLight(colors.lightColor2, 3);
+            pointLight2.position.set(-5, -5, 5);
+            scene.add(pointLight2);
+            
+            const pointLight3 = new THREE.PointLight(colors.lightColor3, 2.5);
+            pointLight3.position.set(0, 5, -5);
+            scene.add(pointLight3);
+            
+            const pointLight4 = new THREE.PointLight(0xffffff, 2);
+            pointLight4.position.set(0, -5, 0);
+            scene.add(pointLight4);
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                particlesGroup.rotation.y += 0.001;
+                sphere.rotation.x += 0.050;
+                sphere.rotation.y += 0.005;
+                
+                scene.children.forEach((child, index) => {
+                    if(child.type === 'Mesh' && child.geometry.type === 'RingGeometry') {
+                        child.rotation.z += 0.002 * (index % 2 === 0 ? 1 : -1);
+                    }
+                });
+
+                renderer.render(scene, camera);
+            }
+
+            window.addEventListener('resize', () => {
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            });
+
+            animate();
+        }
+
+        // Modelo 3D Seção 1 - Amarelo
+        init3DModel('canvas3d-1', {
+            sphereColor: 0xff6600,
+            emissiveColor: 0xffff00,
+            ringColors: [0xffff00, 0xff6600, 0xffaa00],
+            lightColor1: 0xffff00,
+            lightColor2: 0xff6600,
+            lightColor3: 0xffaa00
+        });
+
+        // Modelo 3D Seção 2 - Vinho
+        init3DModel('canvas3d-2', {
+            sphereColor: 0xFF6B6B,
+            emissiveColor: 0xC92A2A,
+            ringColors: [0xFF6B6B, 0xC92A2A, 0x8B0000],
+            lightColor1: 0xFF6B6B,
+            lightColor2: 0xC92A2A,
+            lightColor3: 0x8B0000
+        });
+    </script>
+</body>
+</html>

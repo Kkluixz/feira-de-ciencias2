@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+    <title>Mecânica Quântica - Projeto Feira de Ciências</title>
+    <style>
+        /* Pop-up de Navegação - Tema NASA */
+        .nav-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+
+        .nav-popup-toggle {
+            background: linear-gradient(135deg, #FF6600 0%, #FFFF00 100%);
+            color: #000000;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 102, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .nav-popup-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 102, 0, 0.7), 0 0 30px rgba(255, 255, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-popup-toggle.active {
+            background: linear-gradient(135deg, #FFFF00 0%, #FF6600 100%);
+            box-shadow: 0 6px 30px rgba(255, 255, 0, 0.7), 0 0 30px rgba(255, 102, 0, 0.5);
+        }
+
+        .nav-popup-menu {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 20px;
+            min-width: 250px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.2);
+            border: 1px solid rgba(255, 255, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-popup-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-popup-menu h3 {
+            color: #FFFF00;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: -0.01em;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+        }
+
+        .nav-popup-menu .nav-link {
+            display: block;
+            padding: 12px 16px;
+            color: #E0E0E0;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .nav-popup-menu .nav-link:hover {
+            background: rgba(255, 102, 0, 0.2);
+            color: #FFFF00;
+            border-color: rgba(255, 102, 0, 0.4);
+            transform: translateX(5px);
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
+
+        .nav-popup-menu .nav-link.active {
+            background: rgba(255, 255, 0, 0.2);
+            color: #FFFF00;
+            border-color: rgba(255, 255, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
+        }
+
+        .nav-popup-menu .nav-link.menu-link {
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.3), rgba(252, 61, 33, 0.3));
+            border-color: rgba(11, 61, 145, 0.5);
+            color: #FFFFFF;
+        }
+
+        .nav-popup-menu .nav-link.menu-link:hover {
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.4), rgba(252, 61, 33, 0.4));
+            border-color: rgba(11, 61, 145, 0.7);
+            box-shadow: 0 0 15px rgba(11, 61, 145, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-popup {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .nav-popup-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .nav-popup-menu {
+                bottom: 60px;
+                min-width: 220px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pop-up de Navegação -->
+    <div class="nav-popup">
+        <button class="nav-popup-toggle" id="navToggle" aria-label="Menu de Navegação">
+            <span id="navIcon">☰</span>
+        </button>
+        <div class="nav-popup-menu" id="navMenu">
+            <h3>Navegação</h3>
+            <a href="../menu.html" class="nav-link menu-link">🏠 Voltar ao Menu</a>
+            <a href="Tunelamento.html" class="nav-link">⚛️ Tunelamento Quântico</a>
+            <a href="Mecanica.html" class="nav-link active">🔬 Mecânica Quântica</a>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="/Css/Assets/Carregamento.png" alt="Logo">
+            </div>
+            <div class="loader-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="menu">
+            <section class="logo">
+                <img id="logo-normal" src="/Css/Assets/logoSite.png" alt="logo">
+                <img id="logo-scrolled" src="/Css/Assets/logoSiteBranca.png" alt="logo2">
+            </section>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <section class="menu-opcoes">
+                <nav>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </header>
+
+    <!-- Hero Section estilo NASA -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Mecânica Quântica</h1>
+            <p class="hero-subtitle">Explorando o Mundo Subatômico</p>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Seção Conteúdo -->
+    <section id="sobre" class="nasa-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Conceito</span>
+                <h2 class="section-title">Mecânica Quântica</h2>
+            </div>
+            <div class="nasa-card">
+                <div class="card-content">
+                    <div class="card-text">
+                        <p class="lead-text">A mecânica quântica é a teoria física que descreve o comportamento da matéria e da energia em escalas atômicas e subatômicas, onde as leis da física clássica não se aplicam mais.</p>
+                        <p>Esta página está em desenvolvimento. Em breve, você encontrará informações detalhadas sobre os princípios fundamentais da mecânica quântica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            const body = document.body;
+            
+            body.classList.remove('loading');
+            
+            setTimeout(function() {
+                loader.classList.add('hidden');
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 300);
+        });
+        
+        document.body.classList.add('loading');
+
+        // Sistema de scroll do header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animação de entrada das seções
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.nasa-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll para links do menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    const menuOpcoes = document.querySelector('.menu-opcoes');
+                    const menuToggle = document.querySelector('.menu-toggle');
+                    if (menuOpcoes && menuToggle) {
+                        menuOpcoes.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Menu hambúrguer para mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuOpcoes = document.querySelector('.menu-opcoes');
+        
+        if (menuToggle && menuOpcoes) {
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                menuOpcoes.classList.toggle('active');
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!menuToggle.contains(e.target) && !menuOpcoes.contains(e.target)) {
+                    menuToggle.classList.remove('active');
+                    menuOpcoes.classList.remove('active');
+                }
+            });
+        }
+
+        // Pop-up de Navegação
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navIcon = document.getElementById('navIcon');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                navIcon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Fechar ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navIcon.textContent = '☰';
+                }
+            });
+
+            // Fechar ao pressionar ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navIcon.textContent = '☰';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
