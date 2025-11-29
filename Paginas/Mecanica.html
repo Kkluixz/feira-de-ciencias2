@@ -9,156 +9,433 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
     <title>Mecânica Quântica - Projeto Feira de Ciências</title>
     <style>
-        /* Pop-up de Navegação - Tema NASA */
-        .nav-popup {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
+        /* Background com pontos de degradê - cores frias */
+        body {
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .nav-popup-toggle {
-            background: linear-gradient(135deg, #FF6600 0%, #FFFF00 100%);
-            color: #000000;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            width: 60px;
-            height: 60px;
+        .gradient-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Grid disfarçado no fundo */
+        .gradient-dots::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 191, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .gradient-dot {
+            position: absolute;
             border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(255, 102, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.3);
+            filter: blur(60px);
+            opacity: 0.5;
+            animation: float 20s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        .gradient-dot:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, 
+                rgba(0, 191, 255, 0.8) 0%, 
+                rgba(0, 150, 255, 0.4) 30%,
+                rgba(0, 100, 255, 0.2) 60%,
+                transparent 100%);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .gradient-dot:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, 
+                rgba(0, 206, 209, 0.8) 0%, 
+                rgba(0, 150, 200, 0.4) 30%,
+                rgba(0, 100, 150, 0.2) 60%,
+                transparent 100%);
+            top: 60%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .gradient-dot:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, 
+                rgba(65, 105, 225, 0.8) 0%, 
+                rgba(50, 80, 200, 0.4) 30%,
+                rgba(30, 50, 150, 0.2) 60%,
+                transparent 100%);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+
+        .gradient-dot:nth-child(4) {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, 
+                rgba(0, 255, 255, 0.8) 0%, 
+                rgba(0, 200, 255, 0.4) 30%,
+                rgba(0, 150, 200, 0.2) 60%,
+                transparent 100%);
+            top: 40%;
+            right: 30%;
+            animation-delay: 9s;
+        }
+
+        .gradient-dot:nth-child(5) {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, 
+                rgba(30, 144, 255, 0.8) 0%, 
+                rgba(20, 100, 200, 0.4) 30%,
+                rgba(10, 50, 150, 0.2) 60%,
+                transparent 100%);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 12s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            50% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+            75% {
+                transform: translate(40px, 40px) scale(1.05);
+            }
+        }
+
+        /* Header que desaparece ao scrollar */
+        header {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        /* Popup de navegação inferior - formato cápsula */
+        .bottom-nav-popup {
+            position: fixed;
+            bottom: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 95%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 15px 25px;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .bottom-nav-popup.visible {
+            bottom: 20px;
+            opacity: 1;
+        }
+
+        .bottom-nav-popup-content {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
+            gap: 8px;
+            position: relative;
+        }
+
+        .bottom-nav-link {
+            flex: 1;
+            padding: 10px 12px;
+            background: transparent;
+            border: none;
+            border-radius: 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
             transition: all 0.3s ease;
             position: relative;
-            font-weight: bold;
+            z-index: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .nav-popup-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(255, 102, 0, 0.7), 0 0 30px rgba(255, 255, 0, 0.5);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .nav-popup-toggle.active {
-            background: linear-gradient(135deg, #FFFF00 0%, #FF6600 100%);
-            box-shadow: 0 6px 30px rgba(255, 255, 0, 0.7), 0 0 30px rgba(255, 102, 0, 0.5);
-        }
-
-        .nav-popup-menu {
+        /* Animação de líquido entre botões */
+        .liquid-indicator {
             position: absolute;
-            bottom: 70px;
-            right: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 16px;
-            padding: 20px;
-            min-width: 250px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.2);
-            border: 1px solid rgba(255, 255, 0, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-popup-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .nav-popup-menu h3 {
-            color: #FFFF00;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-align: center;
-            letter-spacing: -0.01em;
-            text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
-        }
-
-        .nav-popup-menu .nav-link {
-            display: block;
-            padding: 12px 16px;
-            color: #E0E0E0;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-            border: 1px solid transparent;
-        }
-
-        .nav-popup-menu .nav-link:hover {
-            background: rgba(255, 102, 0, 0.2);
-            color: #FFFF00;
-            border-color: rgba(255, 102, 0, 0.4);
-            transform: translateX(5px);
-            box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
-        }
-
-        .nav-popup-menu .nav-link.active {
+            height: 100%;
             background: rgba(255, 255, 0, 0.2);
-            color: #FFFF00;
-            border-color: rgba(255, 255, 0, 0.5);
-            box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
         }
 
-        .nav-popup-menu .nav-link.menu-link {
-            background: linear-gradient(135deg, rgba(11, 61, 145, 0.3), rgba(252, 61, 33, 0.3));
-            border-color: rgba(11, 61, 145, 0.5);
-            color: #FFFFFF;
+        .bottom-nav-link.active {
+            color: var(--accent-yellow);
         }
 
-        .nav-popup-menu .nav-link.menu-link:hover {
-            background: linear-gradient(135deg, rgba(11, 61, 145, 0.4), rgba(252, 61, 33, 0.4));
-            border-color: rgba(11, 61, 145, 0.7);
-            box-shadow: 0 0 15px rgba(11, 61, 145, 0.4);
+        .bottom-nav-link:hover {
+            color: var(--accent-yellow);
         }
 
         @media (max-width: 768px) {
-            .nav-popup {
-                bottom: 15px;
-                right: 15px;
+            .bottom-nav-popup {
+                width: 100%;
+                border-radius: 30px 30px 0 0;
+                padding: 12px 15px;
+                bottom: -100px;
             }
 
-            .nav-popup-toggle {
+            .bottom-nav-popup.visible {
+                bottom: 0;
+            }
+
+            .bottom-nav-link {
+                font-size: 0.65rem;
+                padding: 8px 8px;
+                letter-spacing: 0.3px;
+            }
+
+            .bottom-nav-popup-content {
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bottom-nav-link {
+                font-size: 0.6rem;
+                padding: 8px 6px;
+            }
+        }
+
+        /* Cards com cores roxas sólidas - Mecanica */
+        .nasa-section .nasa-card {
+            background: transparent !important;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nasa-section:nth-of-type(2) .nasa-card {
+            background: linear-gradient(135deg, #6A0DAD 0%, #4B0082 100%) !important;
+        }
+
+        .nasa-section:nth-of-type(3) .nasa-card {
+            background: linear-gradient(135deg, #8B00FF 0%, #6A0DAD 100%) !important;
+        }
+
+        .nasa-section:nth-of-type(4) .nasa-card {
+            background: linear-gradient(135deg, #9370DB 0%, #663399 100%) !important;
+        }
+
+        /* Popup com efeito Liquid Glass */
+        .nav-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .nav-popup.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .nav-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-popup-content {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 50px 60px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            min-width: 400px;
+            text-align: center;
+        }
+
+        .nav-popup-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-popup-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-popup-link {
+            display: block;
+            padding: 18px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-popup-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 0, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 0, 0.2);
+            color: var(--accent-yellow);
+        }
+
+        .nav-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-popup-close:hover {
+            background: rgba(255, 255, 0, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .nav-popup-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-popup-trigger:hover {
+            background: rgba(255, 255, 0, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 255, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-popup-content {
+                min-width: 90%;
+                padding: 40px 30px;
+            }
+
+            .nav-popup-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .nav-popup-link {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+
+            .nav-popup-trigger {
                 width: 50px;
                 height: 50px;
-                font-size: 20px;
-            }
-
-            .nav-popup-menu {
-                bottom: 60px;
-                min-width: 220px;
-                padding: 15px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Pop-up de Navegação -->
-    <div class="nav-popup">
-        <button class="nav-popup-toggle" id="navToggle" aria-label="Menu de Navegação">
-            <span id="navIcon">☰</span>
-        </button>
-        <div class="nav-popup-menu" id="navMenu">
-            <h3>Navegação</h3>
-            <a href="../menu.html" class="nav-link menu-link">🏠 Voltar ao Menu</a>
-            <a href="Tunelamento.html" class="nav-link">⚛️ Tunelamento Quântico</a>
-            <a href="Mecanica.html" class="nav-link active">🔬 Mecânica Quântica</a>
-        </div>
-    </div>
-
     <!-- Loading Screen -->
     <div class="loader-container" id="loader">
         <div class="loader-content">
             <div class="loader-logo">
-                <img src="/Css/Assets/Carregamento.png" alt="Logo">
+                <img src="/Css/Assets/carregamento.png" alt="Logo">
             </div>
             <div class="loader-dots">
                 <span class="dot"></span>
@@ -171,8 +448,8 @@
     <header>
         <div class="menu">
             <section class="logo">
-                <img id="logo-normal" src="/Css/Assets/logoSite.png" alt="logo">
-                <img id="logo-scrolled" src="/Css/Assets/logoSiteBranca.png" alt="logo2">
+                <img id="logo-normal" src="/Css/Assets/LogoSIte.png" alt="logo">
+                <img id="logo-scrolled" src="/Css/Assets/LogoSiteB.png" alt="logo2">
             </section>
             <button class="menu-toggle" aria-label="Menu">
                 <span></span>
@@ -182,68 +459,231 @@
             <section class="menu-opcoes">
                 <nav>
                     <ul>
-                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#explicacao">Conceito</a></li>
+                        <li><a href="#experimento">Experimento</a></li>
+                        <li><a href="#importancia">Importância</a></li>
                     </ul>
                 </nav>
             </section>
         </div>
     </header>
 
+    <!-- Background com pontos de degradê - cores frias -->
+    <div class="gradient-dots">
+        <div class="gradient-dot"></div>
+        <div class="gradient-dot"></div>
+        <div class="gradient-dot"></div>
+        <div class="gradient-dot"></div>
+        <div class="gradient-dot"></div>
+    </div>
+
     <!-- Hero Section estilo NASA -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Mecânica Quântica</h1>
-            <p class="hero-subtitle">Explorando o Mundo Subatômico</p>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+            <p class="hero-subtitle">Explorando o Mundo das Partículas</p>
         </div>
     </section>
 
-    <!-- Seção Conteúdo -->
-    <section id="sobre" class="nasa-section">
+    <!-- Seção Explicação -->
+    <section id="explicacao" class="nasa-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Conceito</span>
-                <h2 class="section-title">Mecânica Quântica</h2>
+                <h2 class="section-title">O que é Mecânica Quântica?</h2>
             </div>
             <div class="nasa-card">
                 <div class="card-content">
                     <div class="card-text">
                         <p class="lead-text">A mecânica quântica é a teoria física que descreve o comportamento da matéria e da energia em escalas atômicas e subatômicas, onde as leis da física clássica não se aplicam mais.</p>
-                        <p>Esta página está em desenvolvimento. Em breve, você encontrará informações detalhadas sobre os princípios fundamentais da mecânica quântica.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="/Css/Assets/Placeholder.jpeg" alt="Mecânica Quântica" class="experiment-image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Popup de Navegação -->
+    <div class="nav-popup-overlay" id="navPopupOverlay"></div>
+    <div class="nav-popup" id="navPopup">
+        <div class="nav-popup-content">
+            <button class="nav-popup-close" id="navPopupClose">×</button>
+            <h2 class="nav-popup-title">Navegação</h2>
+            <div class="nav-popup-links">
+                <a href="../inicio.html" class="nav-popup-link">Início</a>
+                <a href="Tunelamento.html" class="nav-popup-link">Tunelamento Quântico</a>
+                <a href="Mecanica.html" class="nav-popup-link">Mecânica Quântica</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão para abrir popup -->
+    <button class="nav-popup-trigger" id="navPopupTrigger" aria-label="Menu de Navegação">☰</button>
+
+    <!-- Popup de navegação inferior -->
+    <div class="bottom-nav-popup" id="bottomNavPopup">
+        <div class="bottom-nav-popup-content">
+            <a href="#explicacao" class="bottom-nav-link">Conceito</a>
+            <a href="#experimento" class="bottom-nav-link">Experimento</a>
+            <a href="#importancia" class="bottom-nav-link">Importância</a>
+        </div>
+    </div>
+
     <script>
-        // Loading Screen
+        // Loading Screen - Introdução mais longa
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
             const body = document.body;
             
-            body.classList.remove('loading');
-            
+            // Mantém o loading por mais tempo (2.5 segundos) como introdução
             setTimeout(function() {
-                loader.classList.add('hidden');
+                // Remove a classe loading do body
+                body.classList.remove('loading');
+                
+                // Esconde o loader após um pequeno delay para suavizar a transição
                 setTimeout(function() {
-                    loader.style.display = 'none';
-                }, 500);
-            }, 300);
+                    loader.classList.add('hidden');
+                    // Remove o loader do DOM após a animação
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 300);
+            }, 2500); // 2.5 segundos de introdução
         });
         
+        // Previne scroll durante o loading
         document.body.classList.add('loading');
 
-        // Sistema de scroll do header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Sistema de scroll do header e popup inferior com animação de voltando
+        let lastScrollY = 0;
+        let scrollingDown = false;
+        const header = document.querySelector('header');
+        const bottomNavPopup = document.getElementById('bottomNavPopup');
+        const bottomNavLinks = document.querySelectorAll('.bottom-nav-link');
+        const liquidIndicator = document.createElement('div');
+        liquidIndicator.className = 'liquid-indicator';
+        const bottomNavContent = document.querySelector('.bottom-nav-popup-content');
+        if (bottomNavContent) {
+            bottomNavContent.appendChild(liquidIndicator);
+        }
+
+        // Função para atualizar o indicador líquido
+        function updateLiquidIndicator(activeLink) {
+            if (!activeLink || !liquidIndicator) return;
+            const linkRect = activeLink.getBoundingClientRect();
+            const containerRect = bottomNavContent.getBoundingClientRect();
+            liquidIndicator.style.width = linkRect.width + 'px';
+            liquidIndicator.style.left = (linkRect.left - containerRect.left) + 'px';
+        }
+
+        // Mapeamento de seções para cores roxas (baseado nas cores dos cards)
+        const sectionColors = {
+            'explicacao': { 
+                gradient: 'linear-gradient(135deg, #6A0DAD 0%, #4B0082 100%)',
+                color: '#6A0DAD'
+            },
+            'experimento': { 
+                gradient: 'linear-gradient(135deg, #8B00FF 0%, #6A0DAD 100%)',
+                color: '#8B00FF'
+            },
+            'importancia': { 
+                gradient: 'linear-gradient(135deg, #9370DB 0%, #663399 100%)',
+                color: '#9370DB'
             }
+        };
+
+        // Função para detectar seção ativa e atualizar cores
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 150;
+
+            let activeSection = '';
+            let activeSectionElement = null;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    activeSection = section.id;
+                    activeSectionElement = section;
+                }
+            });
+
+            // Atualiza cores do popup baseado na seção ativa
+            if (activeSection && sectionColors[activeSection]) {
+                const colors = sectionColors[activeSection];
+                if (liquidIndicator) {
+                    liquidIndicator.style.background = colors.gradient;
+                    liquidIndicator.style.boxShadow = `0 0 20px ${colors.color}40`;
+                }
+                
+                // Atualiza cor do popup também
+                if (bottomNavPopup) {
+                    bottomNavPopup.style.borderColor = `${colors.color}40`;
+                }
+            }
+
+            bottomNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === '#' + activeSection) {
+                    link.classList.add('active');
+                    updateLiquidIndicator(link);
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            scrollingDown = currentScrollY > lastScrollY;
+            
+            if (currentScrollY > 100) {
+                // Esconde o header com animação
+                if (!header.classList.contains('hidden')) {
+                    header.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease';
+                    header.classList.add('hidden');
+                    header.classList.add('scrolled');
+                }
+                
+                // Mostra o popup inferior
+                if (bottomNavPopup && !bottomNavPopup.classList.contains('visible')) {
+                    bottomNavPopup.classList.add('visible');
+                }
+            } else {
+                // Animação de voltando - header desce suavemente
+                if (header.classList.contains('hidden')) {
+                    header.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease';
+                    header.classList.remove('hidden');
+                }
+                header.classList.remove('scrolled');
+                
+                // Esconde o popup inferior
+                if (bottomNavPopup) {
+                    bottomNavPopup.classList.remove('visible');
+                }
+            }
+            
+            // Atualiza seção ativa e indicador líquido
+            updateActiveSection();
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Inicializa o indicador líquido no primeiro link
+        if (bottomNavLinks.length > 0) {
+            updateLiquidIndicator(bottomNavLinks[0]);
+        }
+
+        // Atualiza indicador ao clicar nos links
+        bottomNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                setTimeout(() => {
+                    updateActiveSection();
+                }, 100);
+            });
         });
 
         // Animação de entrada das seções
@@ -260,7 +700,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.nasa-section').forEach(section => {
+        document.querySelectorAll('.nasa-section, .modelo-section').forEach(section => {
             observer.observe(section);
         });
 
@@ -274,6 +714,7 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Fechar menu mobile após clicar
                     const menuOpcoes = document.querySelector('.menu-opcoes');
                     const menuToggle = document.querySelector('.menu-toggle');
                     if (menuOpcoes && menuToggle) {
@@ -294,6 +735,7 @@
                 menuOpcoes.classList.toggle('active');
             });
             
+            // Fechar menu ao clicar fora
             document.addEventListener('click', function(e) {
                 if (!menuToggle.contains(e.target) && !menuOpcoes.contains(e.target)) {
                     menuToggle.classList.remove('active');
@@ -302,37 +744,42 @@
             });
         }
 
-        // Pop-up de Navegação
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        const navIcon = document.getElementById('navIcon');
+        // Popup de navegação
+        const navPopup = document.getElementById('navPopup');
+        const navPopupOverlay = document.getElementById('navPopupOverlay');
+        const navPopupTrigger = document.getElementById('navPopupTrigger');
+        const navPopupClose = document.getElementById('navPopupClose');
 
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                navIcon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-            });
-
-            // Fechar ao clicar fora
-            document.addEventListener('click', function(e) {
-                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                    navToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    navIcon.textContent = '☰';
-                }
-            });
-
-            // Fechar ao pressionar ESC
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    navToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    navIcon.textContent = '☰';
-                }
-            });
+        function openNavPopup() {
+            navPopup.classList.add('active');
+            navPopupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+
+        function closeNavPopup() {
+            navPopup.classList.remove('active');
+            navPopupOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (navPopupTrigger) {
+            navPopupTrigger.addEventListener('click', openNavPopup);
+        }
+
+        if (navPopupClose) {
+            navPopupClose.addEventListener('click', closeNavPopup);
+        }
+
+        if (navPopupOverlay) {
+            navPopupOverlay.addEventListener('click', closeNavPopup);
+        }
+
+        // Fechar com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navPopup.classList.contains('active')) {
+                closeNavPopup();
+            }
+        });
     </script>
 </body>
 </html>
