@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+::webkit-scrollbar{
+    display: none;
+    width: 0;
+    height: 0;
+}
 :root {
     --nasa-blue: #0B3D91;
     --nasa-red: #FC3D21;
