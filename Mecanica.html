@@ -224,7 +224,7 @@
             }
 
             .bottom-nav-popup.visible {
-                bottom: 0;
+                bottom: max(env(safe-area-inset-bottom, 0px), 12px);
             }
 
             .bottom-nav-link {
