@@ -224,7 +224,7 @@
             }
 
             .bottom-nav-popup.visible {
-                bottom: 0;
+                bottom: max(env(safe-area-inset-bottom, 0px), 12px);
             }
 
             .bottom-nav-link {
@@ -542,13 +542,28 @@
                 <span class="section-label">Conceito</span>
                 <h2 class="section-title">O que é Tunelamento Quântico?</h2>
             </div>
-            <div class="nasa-card">
-                <div class="card-content">
-                    <div class="card-text">
-                        <p class="lead-text">O tunelamento quântico é um fenômeno fascinante da mecânica quântica em que uma partícula consegue atravessar uma barreira de potencial mesmo tendo energia menor do que a altura dessa barreira, algo impossível pela física clássica, mas possível devido ao comportamento ondulatório das partículas.</p>
+            <div class="nasa-card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">O tunelamento quântico é um fenômeno fascinante da mecânica quântica em que uma partícula consegue atravessar uma barreira de potencial mesmo tendo energia menor do que a altura dessa barreira, algo impossível pela física clássica, mas possível devido ao comportamento ondulatório das partículas.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/barreirafroht.jpeg" alt="Barreira de Potencial" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-image">
-                        <img src="Css/Assets/barreirafroht.jpeg" alt="Barreira de Potencial" class="experiment-image">
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Na mecânica quântica, partículas como elétrons e prótons são descritas por funções de onda que indicam a probabilidade de encontrá-las em determinados lugares.</p>
+                                <p>Mesmo quando a energia da partícula é menor que a barreira, a função de onda se estende para além dela, permitindo uma pequena, mas real, chance de atravessamento. Esse comportamento puramente quântico é o que chamamos de tunelamento.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/barreirafroht.jpeg" alt="Representação da função de onda" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -562,14 +577,29 @@
                 <span class="section-label">Experimento</span>
                 <h2 class="section-title">Nosso Protótipo: Barreira de Potencial</h2>
             </div>
-            <div class="nasa-card">
-                <div class="card-content reverse">
-                    <div class="card-image">
-                        <img src="Css/Assets/barreiracapa.jpeg" alt="Barreira de Potencial Experimental" class="experiment-image">
+            <div class="nasa-card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content reverse">
+                            <div class="card-image">
+                                <img src="Css/Assets/barreiracapa.jpeg" alt="Barreira de Potencial Experimental" class="experiment-image">
+                            </div>
+                            <div class="card-text">
+                                <p class="lead-text">Nosso protótipo representa uma barreira, conhecida como Barreira de Potencial. Se trata de uma estrutura composta de papelão, tubos de papelão, cola quente, tinta e uma folha de cortiça. </p>
+                                <p>Nós queríamos demonstrar como funciona o Tunelamento Quântico, através de nosso projeto conseguimos realizar o que buscávamos. Usamos bolinhas de gude para representar o Próton, e, quando atravessasse o túnel que fizemos, o ''Próton'' teoricamente teria tunelado.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-text">
-                        <p class="lead-text">Nosso protótipo representa uma barreira, conhecida como Barreira de Potencial. Se trata de uma estrutura composta de papelão, tubos de papelão, cola quente, tinta e uma folha de cortiça. </p>
-                        <p>Nós queríamos demonstrar como funciona o Tunelamento Quântico, através de nosso projeto conseguimos realizar o que buscávamos. Usamos bolinhas de gude para representar o Próton, e, quando atravessasse o túnel que fizemos, o ''Próton'' teoricamente teria tunelado.</p>
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Durante os testes, ajustamos a inclinação e o tamanho da barreira para observar em quais condições as bolinhas conseguiam ou não atravessar o túnulo.</p>
+                                <p>Esse experimento nos ajudou a fazer uma analogia visual com o tunelamento quântico, mostrando que, em nível microscópico, partículas podem atravessar barreiras mesmo quando isso parece “impossível” pela física clássica.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/barreiracapa.jpeg" alt="Detalhes do protótipo" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -582,6 +612,12 @@
             <div class="section-header">
                 <span class="section-label">Visualização</span>
                 <h2 class="section-title">Modelo 3D Interativo</h2>
+            </div>
+            <div class="model-toggle">
+                <label for="modelToggle">
+                    <input type="checkbox" id="modelToggle">
+                    Ativar modelo com onda de probabilidade (tunelamento avançado)
+                </label>
             </div>
             <div class="Modelo3D">
                 <canvas id="canvas3d"></canvas>
@@ -596,14 +632,29 @@
                 <span class="section-label">Experimento</span>
                 <h2 class="section-title">Separados pela Quântica</h2>
             </div>
-            <div class="nasa-card">
-                <div class="card-content">
-                    <div class="card-text">
-                        <p class="lead-text">Este outro projeto representa dois Prótons. Ele busca demonstrar a força de repulsão causadas por leis da física, uma fronteira imposta pela física quântica. </p>
-                        <p> Existe entre os prótons uma distância mínima intransponível, na qual representamos através de imãs neodímios envoltos por massinha EVA, com uns ''palitinhos'', que estavam presos em uma base para melhor controle e gestão dos itens.</p>
+            <div class="nasa-card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Este outro projeto representa dois Prótons. Ele busca demonstrar a força de repulsão causadas por leis da física, uma fronteira imposta pela física quântica. </p>
+                                <p> Existe entre os prótons uma distância mínima intransponível, na qual representamos através de imãs neodímios envoltos por massinha EVA, com uns ''palitinhos'', que estavam presos em uma base para melhor controle e gestão dos itens.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/protons.jpeg" alt="Separados pela Quântica" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-image">
-                        <img src="Css/Assets/protons.jpeg" alt="Separados pela Quântica" class="experiment-image">
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content reverse">
+                            <div class="card-image">
+                                <img src="Css/Assets/protons.jpeg" alt="Força de repulsão entre prótons" class="experiment-image">
+                            </div>
+                            <div class="card-text">
+                                <p class="lead-text">Quando tentamos aproximar os prótons no modelo, os ímãs se repelem, simbolizando as forças que atuam no núcleo atômico.</p>
+                                <p>Na natureza, o equilíbrio entre forças de atração e repulsão, somado a efeitos quânticos como o tunelamento, determina a estabilidade das estrelas e a formação de elementos químicos.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -617,20 +668,71 @@
                 <span class="section-label">Importância</span>
                 <h2 class="section-title">Qual é o Papel do Tunelamento Quântico?</h2>
             </div>
-            <div class="nasa-card">
-                <div class="card-content reverse">
-                    <div class="card-image">
-                        <img src="Css/Assets/espaço.jpg" alt="Papel do Tunelamento Quântico" class="experiment-image">
+            <div class="nasa-card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content reverse">
+                            <div class="card-image">
+                                <img src="Css/Assets/espaço.jpg" alt="Papel do Tunelamento Quântico" class="experiment-image">
+                            </div>
+                            <div class="card-text">
+                                <p class="lead-text">O tunelamento quântico é importante pois permite que partículas atravessem barreiras impossíveis segundo a física clássica, tornando viáveis fenômenos essenciais do universo e tecnologias modernas.</p>
+                                <p> Sem ele, o Sol e outras estrelas não seriam capazes de produzir energia pela fusão nuclear (consequentemente não existiria vida) e muitos dos elementos não seriam produzidos pelas estrelas. É um processo fundamental para entender tanto o funcionamento do cosmos quanto o avanço da eletrônica atual.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-text">
-                        <p class="lead-text">O tunelamento quântico é importante pois permite que partículas atravessem barreiras impossíveis segundo a física clássica, tornando viáveis fenômenos essenciais do universo e tecnologias modernas.</p>
-                        <p> Sem ele, o Sol e outras estrelas não seriam capazes de produzir energia pela fusão nuclear (consequentemente não existiria vida) e muitos dos elementos não seriam produzidos pelas estrelas. É um processo fundamental para entender tanto o funcionamento do cosmos quanto o avanço da eletrônica atual.</p>
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Além das estrelas, o tunelamento aparece em dispositivos como diodos, microscópios de tunelamento e memórias flash.</p>
+                                <p>Essas tecnologias usam o fato de que elétrons podem “atravessar” barreiras em nanoescala, permitindo o desenvolvimento de componentes menores, mais rápidos e eficientes, essenciais para a eletrônica moderna.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/espaço.jpg" alt="Tecnologias que usam tunelamento" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
+    <!-- Seção Sol -->
+    <section id="sol" class="nasa-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Formação Estelar</span>
+                <h2 class="section-title">O Sol e sua Formação</h2>
+            </div>
+            <div class="nasa-card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content">
+                            <div class="card-image">
+                                <img src="Css/Assets/Estrela.jpeg" alt="Formação do Sol" class="experiment-image">
+                            </div>
+                            <div class="card-text">
+                                <p class="lead-text">O tunelamento quântico é um fenômeno essencial para compreender como o universo funciona em sua escala mais fundamental.</p>
+                                <p>Ele possibilita processos que seriam impossíveis pela física clássica, como o brilho do Sol, o funcionamento de tecnologias modernas, incluindo microscópios de alta resolução e memórias eletrônicas. Sem o tunelamento, tanto fenômenos naturais quanto grandes avanços tecnológicos simplesmente não existiriam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content reverse">
+                            <div class="card-text">
+                                <p class="lead-text">No interior do Sol, prótons precisam vencer a repulsão elétrica para se fundirem e formar hélio.</p>
+                                <p>Graças ao tunelamento quântico, mesmo com energias abaixo da barreira clássica, essas fusões acontecem, garantindo a produção contínua de energia que chega até nós em forma de luz e calor.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/Estrela.jpeg" alt="Fusão nuclear no Sol" class="experiment-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Nova Seção -->
     
     <section id="novo-topico" class="nasa-section alt-bg">
@@ -639,35 +741,61 @@
                 <span class="section-label">Conclusão</span>
                 <h2 class="section-title">Impacto no Universo e Tecnologia</h2>
             </div>
-            <div class="nasa-card">
-                <div class="card-content reverse">
-                    <div class="card-image">
-                        <img src="Css/Assets/terrailuminada.jpg" alt="Conclusão - Tunelamento Quântico" class="experiment-image">
+            <div class="nasa-card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content reverse">
+                            <div class="card-image">
+                                <img src="Css/Assets/terrailuminada.jpg" alt="Conclusão - Tunelamento Quântico" class="experiment-image">
+                            </div>
+                            <div class="card-text">
+                                <p class="lead-text">O tunelamento quântico é um fenômeno essencial para compreender como o universo funciona em sua escala mais fundamental.</p>
+                                <p>Ele possibilita processos que seriam impossíveis pela física clássica, como o brilho do Sol, o funcionamento de tecnologias modernas, incluindo microscópios de alta resolução e memórias eletrônicas. Sem o tunelamento, tanto fenômenos naturais quanto grandes avanços tecnológicos simplesmente não existiriam.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-text">
-                        <p class="lead-text">O tunelamento quântico é um fenômeno essencial para compreender como o universo funciona em sua escala mais fundamental.</p>
-                        <p>Ele possibilita processos que seriam impossíveis pela física clássica, como o brilho do Sol, o funcionamento de tecnologias modernas, incluindo microscópios de alta resolução e memórias eletrônicas. Sem o tunelamento, tanto fenômenos naturais quanto grandes avanços tecnológicos simplesmente não existiriam.</p>
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Ao unir teoria, experimento e visualizações em 3D, conseguimos aproximar a mecânica quântica do nosso cotidiano.</p>
+                                <p>Essa compreensão é importante não apenas para a ciência, mas também para inspirar novas gerações a explorar a física moderna e suas aplicações futuras.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/terrailuminada.jpg" alt="Impacto científico e tecnológico" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Sol -->
-    <section id="sol" class="nasa-section">
+    <!-- Mega-seção Cecília Payne -->
+    <section id="cecilia" class="nasa-section alt-bg">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Formação Estelar</span>
-                <h2 class="section-title">O Sol e sua Formação</h2>
+                <span class="section-label">Astrofísica</span>
+                <h2 class="section-title">Cecília Payne-Gaposchkin: A Mulher que Leu as Estrelas</h2>
             </div>
-            <div class="nasa-card">
-                <div class="card-content">
-                    <div class="card-image">
-                        <img src="Css/Assets/Estrela.jpeg" alt="Formação do Sol" class="experiment-image">
+            <div class="nasa-card flip-card cecilia-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Cecília Payne-Gaposchkin foi a primeira pessoa a demonstrar que o Sol e as estrelas são compostos principalmente por hidrogênio e hélio, revolucionando para sempre a astrofísica.</p>
+                                <p>Em sua tese de doutorado, ela conectou espectros de absorção estelar com a física quântica, mostrando como as linhas escuras na luz das estrelas revelam sua composição química.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/cecilia payne.jpeg" alt="Cecília Payne-Gaposchkin" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-text">
-                        <p class="lead-text">O tunelamento quântico é um fenômeno essencial para compreender como o universo funciona em sua escala mais fundamental.</p>
-                        <p>Ele possibilita processos que seriam impossíveis pela física clássica, como o brilho do Sol, o funcionamento de tecnologias modernas, incluindo microscópios de alta resolução e memórias eletrônicas. Sem o tunelamento, tanto fenômenos naturais quanto grandes avanços tecnológicos simplesmente não existiriam.</p>
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content cecilia-images-only">
+                            <div class="cecilia-images-grid">
+                                <img src="Css/Assets/tabela periodica optica.jpeg" alt="Tabela Periódica Óptica" class="experiment-image">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -720,8 +848,9 @@
             <a href="#experimento" class="bottom-nav-link">Protótipo</a>
             <a href="#importancia" class="bottom-nav-link">Experimento</a>
             <a href="#conclusao" class="bottom-nav-link">Importância</a>
-            <a href="#novo-topico" class="bottom-nav-link">Conclusão</a>
             <a href="#sol" class="bottom-nav-link">Sol</a>
+            <a href="#novo-topico" class="bottom-nav-link">Conclusão</a>
+            <a href="#cecilia" class="bottom-nav-link">Cecília Payne</a>
         </div>
     </div>
 
@@ -836,6 +965,10 @@
             'sol': { 
                 gradient: 'linear-gradient(135deg, #FF4500 0%, #FF8C00 100%)',
                 color: '#FF4500'
+            },
+            'cecilia': {
+                gradient: 'linear-gradient(135deg, #6A0DAD 0%, #2E004F 100%)',
+                color: '#B084FF'
             }
         };
 
@@ -989,184 +1122,305 @@
             });
         }
 
-        // Configuração do modelo 3D
+        // Animação de giro dos cards (flip)
+        const flipCards = document.querySelectorAll('.flip-card');
+        flipCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
+
+        // Configuração do modelo 3D com troca entre modelo padrão e modelo com onda
         const canvas = document.getElementById('canvas3d');
-        if (canvas) {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-            
-            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-
-            // Modelo 3D baseado na barreira de potencial
-            // Criando a barreira (estrutura amarela)
-            const barrierGroup = new THREE.Group();
-            
-            // Base da barreira (preto)
-            const baseGeometry = new THREE.BoxGeometry(8, 0.2, 2);
-            const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x1a1a1a });
-            const base = new THREE.Mesh(baseGeometry, baseMaterial);
-            base.position.y = -1;
-            barrierGroup.add(base);
-            
-            // Barreira principal (amarela - formato de colina)
-            const barrierShape = new THREE.Shape();
-            barrierShape.moveTo(-3, 0);
-            barrierShape.quadraticCurveTo(-1, 2, 0, 2.5);
-            barrierShape.quadraticCurveTo(1, 2, 3, 0);
-            barrierShape.lineTo(3, -1);
-            barrierShape.lineTo(-3, -1);
-            barrierShape.lineTo(-3, 0);
-            
-            const extrudeSettings = {
-                depth: 1.5,
-                bevelEnabled: false,
-                steps: 1
-            };
-            
-            const barrierGeometry = new THREE.ExtrudeGeometry(barrierShape, extrudeSettings);
-            const barrierMaterial = new THREE.MeshStandardMaterial({
-                color: 0xD4AF37,
-                emissive: 0xFFD700,
-                emissiveIntensity: 0.3,
-                metalness: 0.3,
-                roughness: 0.7
-            });
-            const barrier = new THREE.Mesh(barrierGeometry, barrierMaterial);
-            barrier.rotation.y = Math.PI / 2;
-            barrier.position.y = -0.5;
-            barrierGroup.add(barrier);
-            
-            // Grupo principal da barreira
-            scene.add(barrierGroup);
-
-            // Representação ondulatória (onda de probabilidade)
-            // Agora a onda é filha da barreira, para acompanhar seu movimento/rotação
-            const waveGroup = new THREE.Group();
-            barrierGroup.add(waveGroup);
-
-            // Cria uma "onda" como uma linha de muitos pontos, simulando o comportamento ondulatório
-            const waveLength = 12;              // comprimento total mostrado
-            const sampleCount = 400;            // quantidade de pontos da linha
-            const waveAmplitude = 0.6;          // amplitude máxima da onda
-            const k = 1.5;                      // número de onda (define o comprimento de onda)
-            const omega = 1.5;                  // frequência angular (velocidade de oscilação, menor para ficar mais estável)
-
-            const wavePoints = [];
-            for (let i = 0; i <= sampleCount; i++) {
-                const x = -6 + (i / sampleCount) * waveLength; // de -6 até +6
-                const y = 0;
-                const z = 0.1; // levemente acima da base
-                wavePoints.push(new THREE.Vector3(x, y, z));
-            }
-
-            const waveGeometry = new THREE.BufferGeometry().setFromPoints(wavePoints);
-            const waveMaterial = new THREE.LineBasicMaterial({
-                color: 0x00ffff,
-                transparent: true,
-                opacity: 0.9
-            });
-
-            const waveLine = new THREE.Line(waveGeometry, waveMaterial);
-            waveGroup.add(waveLine);
-            
-            // Túnel através da barreira (representação visual)
-            const tunnelGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.5, 16);
-            const tunnelMaterial = new THREE.MeshBasicMaterial({
-                color: 0x000000,
-                transparent: true,
-                opacity: 0.3
-            });
-            const tunnel = new THREE.Mesh(tunnelGeometry, tunnelMaterial);
-            tunnel.rotation.z = Math.PI / 2;
-            tunnel.position.set(0, 0.5, 0);
-            barrierGroup.add(tunnel);
-
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-            scene.add(ambientLight);
-            
-            const pointLight1 = new THREE.PointLight(0xffff00, 4);
-            pointLight1.position.set(5, 5, 5);
-            scene.add(pointLight1);
-            
-            const pointLight2 = new THREE.PointLight(0xff6600, 3);
-            pointLight2.position.set(-5, -5, 5);
-            scene.add(pointLight2);
-            
-            const pointLight3 = new THREE.PointLight(0xffaa00, 2.5);
-            pointLight3.position.set(0, 5, -5);
-            scene.add(pointLight3);
-            
-            const pointLight4 = new THREE.PointLight(0xffffff, 2);
-            pointLight4.position.set(0, -5, 0);
-            scene.add(pointLight4);
-
-            camera.position.z = 5;
-
-            // Adiciona controles de órbita para rotação controlável
-            // Usando uma implementação simples de controles de mouse
+        if (canvas && typeof THREE !== 'undefined') {
+            let scene, camera, renderer;
+            let barrierGroup = null;
+            let particles = [];
+            let waveConfig = null;
             let isDragging = false;
             let previousMousePosition = { x: 0, y: 0 };
             let rotationX = 0;
             let rotationY = 0;
             let distance = 5;
-            
-            canvas.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                previousMousePosition = { x: e.clientX, y: e.clientY };
-            });
-            
-            canvas.addEventListener('mousemove', (e) => {
-                if (isDragging) {
-                    const deltaX = e.clientX - previousMousePosition.x;
-                    const deltaY = e.clientY - previousMousePosition.y;
-                    
-                    rotationY += deltaX * 0.01;
-                    rotationX += deltaY * 0.01;
-                    
-                    previousMousePosition = { x: e.clientX, y: e.clientY };
-                }
-            });
-            
-            canvas.addEventListener('mouseup', () => {
-                isDragging = false;
-            });
-            
-            canvas.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                distance += e.deltaY * 0.01;
-                distance = Math.max(3, Math.min(10, distance));
-            });
-            
-            // Touch controls para mobile
-            canvas.addEventListener('touchstart', (e) => {
-                if (e.touches.length === 1) {
+            let currentModelType = 'default';
+
+            function initRenderer() {
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+                scene.add(ambientLight);
+                
+                const pointLight1 = new THREE.PointLight(0xffff00, 4);
+                pointLight1.position.set(5, 5, 5);
+                scene.add(pointLight1);
+                
+                const pointLight2 = new THREE.PointLight(0xff6600, 3);
+                pointLight2.position.set(-5, -5, 5);
+                scene.add(pointLight2);
+                
+                const pointLight3 = new THREE.PointLight(0xffaa00, 2.5);
+                pointLight3.position.set(0, 5, -5);
+                scene.add(pointLight3);
+                
+                const pointLight4 = new THREE.PointLight(0xffffff, 2);
+                pointLight4.position.set(0, -5, 0);
+                scene.add(pointLight4);
+
+                camera.position.z = distance;
+
+                // Controles de câmera (mouse e touch)
+                canvas.addEventListener('mousedown', (e) => {
                     isDragging = true;
-                    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                });
+                
+                canvas.addEventListener('mousemove', (e) => {
+                    if (isDragging) {
+                        const deltaX = e.clientX - previousMousePosition.x;
+                        const deltaY = e.clientY - previousMousePosition.y;
+                        
+                        rotationY += deltaX * 0.01;
+                        rotationX += deltaY * 0.01;
+                        
+                        previousMousePosition = { x: e.clientX, y: e.clientY };
+                    }
+                });
+                
+                canvas.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                canvas.addEventListener('mouseleave', () => {
+                    isDragging = false;
+                });
+                
+                canvas.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    distance += e.deltaY * 0.01;
+                    distance = Math.max(3, Math.min(10, distance));
+                });
+                
+                canvas.addEventListener('touchstart', (e) => {
+                    if (e.touches.length === 1) {
+                        isDragging = true;
+                        previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                    }
+                });
+                
+                canvas.addEventListener('touchmove', (e) => {
+                    if (isDragging && e.touches.length === 1) {
+                        const deltaX = e.touches[0].clientX - previousMousePosition.x;
+                        const deltaY = e.touches[0].clientY - previousMousePosition.y;
+                        
+                        rotationY += deltaX * 0.01;
+                        rotationX += deltaY * 0.01;
+                        
+                        previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                    }
+                });
+                
+                canvas.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                });
+            }
+
+            function createBaseAndBarrierTall() {
+                barrierGroup = new THREE.Group();
+
+                const baseGeometry = new THREE.BoxGeometry(8, 0.2, 2);
+                const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x1a1a1a });
+                const base = new THREE.Mesh(baseGeometry, baseMaterial);
+                base.position.y = -1;
+                barrierGroup.add(base);
+                
+                const barrierShape = new THREE.Shape();
+                barrierShape.moveTo(-3, 0);
+                barrierShape.quadraticCurveTo(-1, 4, 0, 8);
+                barrierShape.quadraticCurveTo(1, 2, 3, 0);
+                barrierShape.lineTo(3, -1);
+                barrierShape.lineTo(-3, -1);
+                barrierShape.lineTo(-3, 0);
+                
+                const extrudeSettings = {
+                    depth: 1.5,
+                    bevelEnabled: false,
+                    steps: 1
+                };
+                
+                const barrierGeometry = new THREE.ExtrudeGeometry(barrierShape, extrudeSettings);
+                const barrierMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xD4AF37,
+                    emissive: 0xFFD700,
+                    emissiveIntensity: 0.3,
+                    metalness: 0.3,
+                    roughness: 0.7
+                });
+                const barrier = new THREE.Mesh(barrierGeometry, barrierMaterial);
+                barrier.rotation.y = Math.PI / 2;
+                barrier.position.y = -0.5;
+                barrierGroup.add(barrier);
+
+                const tunnelGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.5, 16);
+                const tunnelMaterial = new THREE.MeshBasicMaterial({
+                    color: 0x000000,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                const tunnel = new THREE.Mesh(tunnelGeometry, tunnelMaterial);
+                tunnel.rotation.z = Math.PI / 2;
+                tunnel.position.set(0, 0.5, 0);
+                barrierGroup.add(tunnel);
+            }
+
+            function createBaseAndBarrierWave() {
+                barrierGroup = new THREE.Group();
+
+                const baseGeometry = new THREE.BoxGeometry(8, 0.2, 2);
+                const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x1a1a1a });
+                const base = new THREE.Mesh(baseGeometry, baseMaterial);
+                base.position.y = -1;
+                barrierGroup.add(base);
+                
+                const barrierShape = new THREE.Shape();
+                barrierShape.moveTo(-3, 0);
+                barrierShape.quadraticCurveTo(-1, 2, 0, 2.5);
+                barrierShape.quadraticCurveTo(1, 2, 3, 0);
+                barrierShape.lineTo(3, -1);
+                barrierShape.lineTo(-3, -1);
+                barrierShape.lineTo(-3, 0);
+                
+                const extrudeSettings = {
+                    depth: 1.5,
+                    bevelEnabled: false,
+                    steps: 1
+                };
+                
+                const barrierGeometry = new THREE.ExtrudeGeometry(barrierShape, extrudeSettings);
+                const barrierMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xD4AF37,
+                    emissive: 0xFFD700,
+                    emissiveIntensity: 0.3,
+                    metalness: 0.3,
+                    roughness: 0.7
+                });
+                const barrier = new THREE.Mesh(barrierGeometry, barrierMaterial);
+                barrier.rotation.y = Math.PI / 2;
+                barrier.position.y = -0.5;
+                barrierGroup.add(barrier);
+
+                const tunnelGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.5, 16);
+                const tunnelMaterial = new THREE.MeshBasicMaterial({
+                    color: 0x000000,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                const tunnel = new THREE.Mesh(tunnelGeometry, tunnelMaterial);
+                tunnel.rotation.z = Math.PI / 2;
+                tunnel.position.set(0, 0.5, 0);
+                barrierGroup.add(tunnel);
+            }
+
+            function buildDefaultModel() {
+                particles = [];
+                waveConfig = null;
+                createBaseAndBarrierTall();
+
+                const particleCount = 20;
+                const particleGeometry = new THREE.SphereGeometry(0.15, 8, 8);
+                const particleMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xDC143C,
+                    emissive: 0xFF0000,
+                    emissiveIntensity: 0.5,
+                    metalness: 0.8,
+                    roughness: 0.2
+                });
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+                    particle.position.set(
+                        (Math.random() - 0.5) * 10,
+                        Math.random() * 3 - 1,
+                        (Math.random() - 0.5) * 2
+                    );
+                    particles.push(particle);
+                    barrierGroup.add(particle);
                 }
-            });
-            
-            canvas.addEventListener('touchmove', (e) => {
-                if (isDragging && e.touches.length === 1) {
-                    const deltaX = e.touches[0].clientX - previousMousePosition.x;
-                    const deltaY = e.touches[0].clientY - previousMousePosition.y;
-                    
-                    rotationY += deltaX * 0.01;
-                    rotationX += deltaY * 0.01;
-                    
-                    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+
+                scene.add(barrierGroup);
+            }
+
+            function buildWaveModel() {
+                particles = [];
+                createBaseAndBarrierWave();
+
+                const waveGroup = new THREE.Group();
+                barrierGroup.add(waveGroup);
+
+                const waveLength = 12;
+                const sampleCount = 400;
+                const waveAmplitude = 0.6;
+                const k = 1.5;
+                const omega = 1.5;
+
+                const wavePoints = [];
+                for (let i = 0; i <= sampleCount; i++) {
+                    const x = -6 + (i / sampleCount) * waveLength;
+                    const y = 0;
+                    const z = 0.1;
+                    wavePoints.push(new THREE.Vector3(x, y, z));
                 }
-            });
-            
-            canvas.addEventListener('touchend', () => {
-                isDragging = false;
-            });
+
+                const waveGeometry = new THREE.BufferGeometry().setFromPoints(wavePoints);
+                const waveMaterial = new THREE.LineBasicMaterial({
+                    color: 0x00ffff,
+                    transparent: true,
+                    opacity: 0.9
+                });
+
+                const waveLine = new THREE.Line(waveGeometry, waveMaterial);
+                waveGroup.add(waveLine);
+
+                waveConfig = {
+                    geometry: waveGeometry,
+                    amplitude: waveAmplitude,
+                    k,
+                    omega,
+                    barrierStart: -3.0,
+                    barrierEnd: 3.0
+                };
+
+                scene.add(barrierGroup);
+            }
+
+            function switchModel(type) {
+                currentModelType = type;
+                if (barrierGroup) {
+                    scene.remove(barrierGroup);
+                    barrierGroup = null;
+                }
+                particles = [];
+                waveConfig = null;
+
+                if (type === 'wave') {
+                    buildWaveModel();
+                } else {
+                    buildDefaultModel();
+                }
+            }
 
             function animate() {
                 requestAnimationFrame(animate);
 
-                // Aplica rotação controlável pela câmera
                 const x = Math.sin(rotationY) * distance;
                 const z = Math.cos(rotationY) * distance;
                 camera.position.x = x;
@@ -1174,57 +1428,58 @@
                 camera.position.y = Math.sin(rotationX) * distance + 1;
                 camera.lookAt(0, 0, 0);
 
-                // Anima a onda quântica (comportamento ondulatório)
-                const positions = waveGeometry.attributes.position;
-                const time = performance.now() * 0.001;
-
-                // Parâmetros da barreira em coordenadas locais da onda
-                const barrierStart = -3.0;
-                const barrierEnd = 3.0;
-                const transmittedAmplitude = 0.4;
-
-                for (let i = 0; i < positions.count; i++) {
-                    const px = positions.getX(i);
-
-                    // Onda de probabilidade se propagando para a direita:
-                    // ψ(x, t) ~ A(x) · sen(kx - ωt)
-                    const phase = k * px - omega * time;
-
-                    // Envoltória SUAVE para o tunelamento:
-                    // - Região I (x < -3): amplitude ≈ 1 (onda incidente)
-                    // - Região II (-3 ≤ x ≤ 3): transição suave 1 → transmittedAmplitude
-                    // - Região III (x > 3): amplitude constante transmittedAmplitude
-                    let envelope = 1.0;
-
-                    if (px >= barrierStart && px <= barrierEnd) {
-                        // Normaliza x dentro da barreira para [0, 1]
-                        const s = (px - barrierStart) / (barrierEnd - barrierStart);
-                        // Curva smoothstep cúbica: 3s² - 2s³ (suave nas bordas)
-                        const smooth = 3 * s * s - 2 * s * s * s;
-                        // Interpola de 1 até transmittedAmplitude sem “quebra”
-                        envelope = 1 + (transmittedAmplitude - 1) * smooth;
-                    } else if (px > barrierEnd) {
-                        envelope = transmittedAmplitude;
-                    }
-
-                    const py = Math.sin(phase) * waveAmplitude * envelope;
-                    positions.setY(i, py);
+                if (currentModelType === 'default' && particles.length > 0) {
+                    particles.forEach((particle, index) => {
+                        particle.position.x += Math.sin(Date.now() * 0.001 + index) * 0.01;
+                        particle.position.y += Math.cos(Date.now() * 0.001 + index * 0.5) * 0.005;
+                    });
                 }
-                positions.needsUpdate = true;
 
-                // Rotação suave da barreira para dar dinamismo visual leve
-                barrierGroup.rotation.y += 0.0015;
+                if (currentModelType === 'wave' && waveConfig) {
+                    const positions = waveConfig.geometry.attributes.position;
+                    const time = performance.now() * 0.001;
+
+                    const barrierStart = waveConfig.barrierStart;
+                    const barrierEnd = waveConfig.barrierEnd;
+                    const transmittedAmplitude = 0.4;
+
+                    for (let i = 0; i < positions.count; i++) {
+                        const px = positions.getX(i);
+                        const phase = waveConfig.k * px - waveConfig.omega * time;
+
+                        let envelope = 1.0;
+
+                        if (px >= barrierStart && px <= barrierEnd) {
+                            const s = (px - barrierStart) / (barrierEnd - barrierStart);
+                            const smooth = 3 * s * s - 2 * s * s * s;
+                            envelope = 1 + (transmittedAmplitude - 1) * smooth;
+                        } else if (px > barrierEnd) {
+                            envelope = transmittedAmplitude;
+                        }
+
+                        const py = Math.sin(phase) * waveConfig.amplitude * envelope;
+                        positions.setY(i, py);
+                    }
+                    positions.needsUpdate = true;
+                }
+
+                if (barrierGroup) {
+                    barrierGroup.rotation.y += currentModelType === 'wave' ? 0.0015 : 0.002;
+                }
 
                 renderer.render(scene, camera);
             }
 
-            window.addEventListener('resize', () => {
-                camera.aspect = canvas.clientWidth / canvas.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            });
-
+            initRenderer();
+            buildDefaultModel();
             animate();
+
+            const modelToggle = document.getElementById('modelToggle');
+            if (modelToggle) {
+                modelToggle.addEventListener('change', (e) => {
+                    switchModel(e.target.checked ? 'wave' : 'default');
+                });
+            }
         }
 
         // Contador de visitas
@@ -1260,3 +1515,6 @@
     </script>
 </body>
 </html>
+
+
+
