@@ -201,7 +201,7 @@
             height: 100%;
             background: rgba(255, 255, 255, 0);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
+            border-radius: 5px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 0;
             box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
@@ -268,7 +268,7 @@
 
         /* Seção 4 - Conclusão (espaço.jpg - azul escuro/preto) */
         .nasa-section:nth-of-type(6) .nasa-card {
-            background: linear-gradient(135deg, #0B1426 0%, #000000 100%) !important;
+            background: linear-gradient(135deg, #d6e4ff 0%, #000000 100%) !important;
         }
 
         /* Seção 5 - Novo Tópico (terrailuminada.jpg - azul/verde) */
@@ -733,7 +733,40 @@
         </div>
     </section>
 
-    <!-- Nova Seção -->
+  
+
+    <!-- Mega-seção Cecília Payne -->
+    <section id="cecilia" class="nasa-section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Astrofísica</span>
+                <h2 class="section-title">Cecília Payne-Gaposchkin: A Mulher que Leu as Estrelas</h2>
+            </div>
+            <div class="nasa-card flip-card cecilia-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-face flip-card-front">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <p class="lead-text">Cecília Payne-Gaposchkin foi a primeira pessoa a demonstrar que o Sol e as estrelas são compostos principalmente por hidrogênio e hélio, revolucionando para sempre a astrofísica.</p>
+                                <p>Em sua tese de doutorado, ela conectou espectros de absorção estelar com a física quântica, mostrando como as linhas escuras na luz das estrelas revelam sua composição química.</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="Css/Assets/cecilia payne.jpeg" alt="Cecília Payne-Gaposchkin" class="experiment-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-face flip-card-back">
+                        <div class="card-content cecilia-images-only">
+                            <div class="cecilia-images-grid">
+                                <img src="Css/Assets/tabela periodica optica.jpeg" alt="Tabela Periódica Óptica" class="experiment-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Nova Seção -->
     
     <section id="novo-topico" class="nasa-section alt-bg">
         <div class="container">
@@ -762,38 +795,6 @@
                             </div>
                             <div class="card-image">
                                 <img src="Css/Assets/terrailuminada.jpg" alt="Impacto científico e tecnológico" class="experiment-image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mega-seção Cecília Payne -->
-    <section id="cecilia" class="nasa-section alt-bg">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Astrofísica</span>
-                <h2 class="section-title">Cecília Payne-Gaposchkin: A Mulher que Leu as Estrelas</h2>
-            </div>
-            <div class="nasa-card flip-card cecilia-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-face flip-card-front">
-                        <div class="card-content">
-                            <div class="card-text">
-                                <p class="lead-text">Cecília Payne-Gaposchkin foi a primeira pessoa a demonstrar que o Sol e as estrelas são compostos principalmente por hidrogênio e hélio, revolucionando para sempre a astrofísica.</p>
-                                <p>Em sua tese de doutorado, ela conectou espectros de absorção estelar com a física quântica, mostrando como as linhas escuras na luz das estrelas revelam sua composição química.</p>
-                            </div>
-                            <div class="card-image">
-                                <img src="Css/Assets/cecilia payne.jpeg" alt="Cecília Payne-Gaposchkin" class="experiment-image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flip-card-face flip-card-back">
-                        <div class="card-content cecilia-images-only">
-                            <div class="cecilia-images-grid">
-                                <img src="Css/Assets/tabela periodica optica.jpeg" alt="Tabela Periódica Óptica" class="experiment-image">
                             </div>
                         </div>
                     </div>
@@ -849,8 +850,9 @@
             <a href="#importancia" class="bottom-nav-link">Experimento</a>
             <a href="#conclusao" class="bottom-nav-link">Importância</a>
             <a href="#sol" class="bottom-nav-link">Sol</a>
-            <a href="#novo-topico" class="bottom-nav-link">Conclusão</a>
             <a href="#cecilia" class="bottom-nav-link">Cecília Payne</a>
+            <a href="#novo-topico" class="bottom-nav-link">Conclusão</a>
+            
         </div>
     </div>
 
