@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="/Css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
@@ -107,7 +107,7 @@
             width: 320px;
             height: 320px;
             background: radial-gradient(circle, 
-                rgba(255, 100, 0, 0.8) 0%, 
+                rgba(51, 32, 19, 0.8) 0%, 
                 rgba(255, 150, 0, 0.4) 30%,
                 rgba(255, 200, 0, 0.2) 60%,
                 transparent 100%);
@@ -150,10 +150,10 @@
             z-index: 1000;
             width: 95%;
             max-width: 700px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.233);
             backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
             padding: 15px 25px;
             box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3),
                         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -170,7 +170,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            gap: 7.5px;
             position: relative;
         }
 
@@ -180,7 +180,7 @@
             background: transparent;
             border: none;
             border-radius: 20px;
-            color: var(--text-primary);
+            color: #ffffff;
             text-decoration: none;
             font-size: 0.75rem;
             font-weight: 600;
@@ -199,20 +199,20 @@
         .liquid-indicator {
             position: absolute;
             height: 100%;
-            background: rgba(255, 255, 0, 0.2);
+            background: rgba(255, 255, 255, 0);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border-radius: 15px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 0;
             box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
         }
 
         .bottom-nav-link.active {
-            color: var(--accent-yellow);
+            color: #ffffff;
         }
 
         .bottom-nav-link:hover {
-            color: var(--accent-yellow);
+            color: #ffffff;
         }
 
         @media (max-width: 768px) {
@@ -245,30 +245,40 @@
             }
         }
 
-        /* Cards com cores sólidas - Tunelamento */
+        /* Cards com cores sólidas baseadas nas imagens - Tunelamento */
         .nasa-section .nasa-card {
             background: transparent !important;
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Seção 1 - Explicação (barreirafroht.jpeg - amarelo/marrom) */
         .nasa-section:nth-of-type(2) .nasa-card {
-            background: linear-gradient(135deg, #ce8d00 0%, #000000 100%) !important;
+            background: linear-gradient(135deg, #9da004 0%, #8B6914 100%) !important;
         }
 
+        /* Seção 2 - Experimento (barreiracapa.jpeg - amarelo/marrom) */
         .nasa-section:nth-of-type(3) .nasa-card {
-            background: linear-gradient(135deg, #521d239c 0%, #2b070a00 100%) !important;
+            background: linear-gradient(135deg, #B8860B 0%, #8B6914 100%) !important;
         }
 
+        /* Seção 3 - Importância (protons.jpeg - vermelho/rosa) */
         .nasa-section:nth-of-type(5) .nasa-card {
-            background: linear-gradient(135deg, #502608 0%, #00000000 100%) !important;
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%) !important;
         }
 
+        /* Seção 4 - Conclusão (espaço.jpg - azul escuro/preto) */
         .nasa-section:nth-of-type(6) .nasa-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #00000034 100%) !important;
+            background: linear-gradient(135deg, #0B1426 0%, #000000 100%) !important;
         }
 
+        /* Seção 5 - Novo Tópico (terrailuminada.jpg - azul/verde) */
         .nasa-section:nth-of-type(7) .nasa-card {
-            background: linear-gradient(135deg, #79662a 0%, #b8870b00 100%) !important;
+            background: linear-gradient(135deg, #1E3A5F 0%, #0A1F3A 100%) !important;
+        }
+
+        /* Seção 6 - Sol (Estrela.jpeg - laranja/amarelo/vermelho) */
+        .nasa-section:nth-of-type(8) .nasa-card {
+            background: linear-gradient(135deg, #FF4500 0%, #FF8C00 100%) !important;
         }
 
         /* Popup com efeito Liquid Glass */
@@ -367,7 +377,7 @@
         }
 
         .nav-popup-link:nth-child(1)::before {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            background: linear-gradient(135deg, #ffc400 0%, #b8870b1e 100%);
         }
 
         .nav-popup-link:nth-child(2)::before {
@@ -409,7 +419,7 @@
         }
 
         .nav-popup-close:hover {
-            background: rgba(255, 255, 0, 0.2);
+            background: rgba(255, 180, 180, 0.2);
             transform: rotate(90deg);
         }
 
@@ -419,25 +429,27 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 0, 0.2);
+            background: #ffc40000;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgb(255, 238, 0);
             border-radius: 50%;
-            color: var(--accent-yellow);
+            color: #ffee00;
             font-size: 1.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.6s ease-in-out;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-popup-trigger:hover {
-            background: rgba(255, 255, 0, 0.3);
+            background: rgba(0, 0, 0, 0.199);
+            border: px solid rgb(255, 255, 255);
             transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(255, 255, 0, 0.4);
+            color: #ffffff;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -471,7 +483,7 @@
     <div class="loader-container" id="loader">
         <div class="loader-content">
             <div class="loader-logo">
-                <img src="Css/Assets/carregamento.png" alt="Logo">
+                <img src="/Css/Assets/LogositePH.png" alt="Logo">
             </div>
             <div class="loader-dots">
                 <span class="dot"></span>
@@ -484,8 +496,8 @@
     <header>
         <div class="menu">
             <section class="logo">
-                <img id="logo-normal" src="Css/Assets/LogoSIte.png" alt="logo">
-                <img id="logo-scrolled" src="Css/Assets/LogoSiteB.png" alt="logo2">
+                <img id="logo-normal" src="/Css/Assets/LogoSIte.png" alt="logo">
+                <img id="logo-scrolled" src="/Css/Assets/LogoSiteB.png" alt="logo2">
             </section>
             <button class="menu-toggle" aria-label="Menu">
                 <span></span>
@@ -536,7 +548,7 @@
                         <p class="lead-text">O tunelamento quântico é um fenômeno fascinante da mecânica quântica em que uma partícula consegue atravessar uma barreira de potencial mesmo tendo energia menor do que a altura dessa barreira, algo impossível pela física clássica, mas possível devido ao comportamento ondulatório das partículas.</p>
                     </div>
                     <div class="card-image">
-                        <img src="Css/Assets/Placeholder.jpeg" alt="Barreira de Potencial" class="experiment-image">
+                        <img src="/Css/Assets/barreirafroht.jpeg" alt="Barreira de Potencial" class="experiment-image">
                     </div>
                 </div>
             </div>
@@ -553,7 +565,7 @@
             <div class="nasa-card">
                 <div class="card-content reverse">
                     <div class="card-image">
-                        <img src="Css/Assets/Placeholder2.jpeg" alt="Barreira de Potencial Experimental" class="experiment-image">
+                        <img src="/Css/Assets/barreiracapa.jpeg" alt="Barreira de Potencial Experimental" class="experiment-image">
                     </div>
                     <div class="card-text">
                         <p class="lead-text">Nosso protótipo representa uma barreira, conhecida como Barreira de Potencial. Se trata de uma estrutura composta de papelão, tubos de papelão, cola quente, tinta e uma folha de cortiça. </p>
@@ -591,7 +603,7 @@
                         <p> Existe entre os prótons uma distância mínima intransponível, na qual representamos através de imãs neodímios envoltos por massinha EVA, com uns ''palitinhos'', que estavam presos em uma base para melhor controle e gestão dos itens.</p>
                     </div>
                     <div class="card-image">
-                        <img src="Css/Assets/Placeholder.jpeg" alt="Separados pela Quântica" class="experiment-image">
+                        <img src="/Css/Assets/protons.jpeg" alt="Separados pela Quântica" class="experiment-image">
                     </div>
                 </div>
             </div>
@@ -608,7 +620,7 @@
             <div class="nasa-card">
                 <div class="card-content reverse">
                     <div class="card-image">
-                        <img src="Css/Assets/espaço.jpg" alt="Papel do Tunelamento Quântico" class="experiment-image">
+                        <img src="/Css/Assets/espaço.jpg" alt="Papel do Tunelamento Quântico" class="experiment-image">
                     </div>
                     <div class="card-text">
                         <p class="lead-text">O tunelamento quântico é importante pois permite que partículas atravessem barreiras impossíveis segundo a física clássica, tornando viáveis fenômenos essenciais do universo e tecnologias modernas.</p>
@@ -630,11 +642,50 @@
             <div class="nasa-card">
                 <div class="card-content reverse">
                     <div class="card-image">
-                        <img src="Css/Assets/terrailuminada.jpg" alt="Conclusão - Tunelamento Quântico" class="experiment-image">
+                        <img src="/Css/Assets/terrailuminada.jpg" alt="Conclusão - Tunelamento Quântico" class="experiment-image">
                     </div>
                     <div class="card-text">
                         <p class="lead-text">O tunelamento quântico é um fenômeno essencial para compreender como o universo funciona em sua escala mais fundamental.</p>
                         <p>Ele possibilita processos que seriam impossíveis pela física clássica, como o brilho do Sol, o funcionamento de tecnologias modernas, incluindo microscópios de alta resolução e memórias eletrônicas. Sem o tunelamento, tanto fenômenos naturais quanto grandes avanços tecnológicos simplesmente não existiriam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sol -->
+    <section id="sol" class="nasa-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Formação Estelar</span>
+                <h2 class="section-title">O Sol e sua Formação</h2>
+            </div>
+            <div class="nasa-card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="/Css/Assets/Estrela.jpeg" alt="Formação do Sol" class="experiment-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contador de Visitas -->
+    <section id="visitas" class="nasa-section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Estatísticas</span>
+                <h2 class="section-title">Visitantes do Site</h2>
+            </div>
+            <div class="nasa-card">
+                <div class="card-content">
+                    <div class="card-text" style="text-align: center; width: 100%;">
+                        <div style="font-size: 5rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 40px 0;">
+                            <span id="visitCount">0</span>
+                        </div>
+                        <p class="lead-text" style="font-size: 1.5rem; margin-top: 20px;">
+                            Pessoas já exploraram este projeto
+                        </p>
                     </div>
                 </div>
             </div>
@@ -648,7 +699,7 @@
             <button class="nav-popup-close" id="navPopupClose">×</button>
             <h2 class="nav-popup-title">Navegação</h2>
             <div class="nav-popup-links">
-                <a href="index.html" class="nav-popup-link">Início</a>
+                <a href="../inicio.html" class="nav-popup-link">Início</a>
                 <a href="Tunelamento.html" class="nav-popup-link">Tunelamento Quântico</a>
                 <a href="Mecanica.html" class="nav-popup-link">Mecânica Quântica</a>
             </div>
@@ -666,6 +717,7 @@
             <a href="#importancia" class="bottom-nav-link">Experimento</a>
             <a href="#conclusao" class="bottom-nav-link">Importância</a>
             <a href="#novo-topico" class="bottom-nav-link">Conclusão</a>
+            <a href="#sol" class="bottom-nav-link">Sol</a>
         </div>
     </div>
 
@@ -758,24 +810,28 @@
         // Mapeamento de seções para cores (baseado nas cores dos cards)
         const sectionColors = {
             'explicacao': { 
-                gradient: 'linear-gradient(135deg, #D4AF37 0%, #B8860B 100%)',
+                gradient: 'linear-gradient(135deg, #D4AF37 0%, #8B6914 100%)',
                 color: '#D4AF37'
             },
             'experimento': { 
-                gradient: 'linear-gradient(135deg, #722F37 0%, #5C1A1F 100%)',
-                color: '#722F37'
+                gradient: 'linear-gradient(135deg, #B8860B 0%, #8B6914 100%)',
+                color: '#B8860B'
             },
             'importancia': { 
-                gradient: 'linear-gradient(135deg, #8B4513 0%, #654321 100%)',
-                color: '#8B4513'
+                gradient: 'linear-gradient(135deg, #DC143C 0%, #8B0000 100%)',
+                color: '#DC143C'
             },
             'conclusao': { 
-                gradient: 'linear-gradient(135deg, #1a1a1a 0%, #000000 100%)',
-                color: '#1a1a1a'
+                gradient: 'linear-gradient(135deg, #0B1426 0%, #000000 100%)',
+                color: '#0B1426'
             },
             'novo-topico': { 
-                gradient: 'linear-gradient(135deg, #D4AF37 0%, #B8860B 100%)',
-                color: '#D4AF37'
+                gradient: 'linear-gradient(135deg, #1E3A5F 0%, #0A1F3A 100%)',
+                color: '#1E3A5F'
+            },
+            'sol': { 
+                gradient: 'linear-gradient(135deg, #FF4500 0%, #FF8C00 100%)',
+                color: '#FF4500'
             }
         };
 
@@ -939,56 +995,81 @@
             renderer.setSize(canvas.clientWidth, canvas.clientHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
 
-            const colors = [0xffff00, 0xff6600, 0xffaa00, 0xffffff];
+            // Modelo 3D baseado na barreira de potencial
+            // Criando a barreira (estrutura amarela)
+            const barrierGroup = new THREE.Group();
             
-            const particlesCount = 300;
-            const particlesGroup = new THREE.Group();
+            // Base da barreira (preto)
+            const baseGeometry = new THREE.BoxGeometry(8, 0.2, 2);
+            const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x1a1a1a });
+            const base = new THREE.Mesh(baseGeometry, baseMaterial);
+            base.position.y = -1;
+            barrierGroup.add(base);
             
-            const ballGeometry = new THREE.SphereGeometry(0.05, 8, 8);
-            const ballMaterial = new THREE.MeshStandardMaterial({
-                color: 0xffffff,
-                emissive: 0xffffff,
-                emissiveIntensity: 1.0,
-                metalness: 0.5,
-                roughness: 0.5
+            // Barreira principal (amarela - formato de colina)
+            const barrierShape = new THREE.Shape();
+            barrierShape.moveTo(-3, 0);
+            barrierShape.quadraticCurveTo(-1, 2, 0, 2.5);
+            barrierShape.quadraticCurveTo(1, 2, 3, 0);
+            barrierShape.lineTo(3, -1);
+            barrierShape.lineTo(-3, -1);
+            barrierShape.lineTo(-3, 0);
+            
+            const extrudeSettings = {
+                depth: 1.5,
+                bevelEnabled: false,
+                steps: 1
+            };
+            
+            const barrierGeometry = new THREE.ExtrudeGeometry(barrierShape, extrudeSettings);
+            const barrierMaterial = new THREE.MeshStandardMaterial({
+                color: 0xD4AF37,
+                emissive: 0xFFD700,
+                emissiveIntensity: 0.3,
+                metalness: 0.3,
+                roughness: 0.7
             });
-
-            for(let i = 0; i < particlesCount; i++) {
-                const ball = new THREE.Mesh(ballGeometry, ballMaterial);
-                ball.position.set(
-                    (Math.random() - 0.5) * 20,
-                    (Math.random() - 0.5) * 20,
-                    (Math.random() - 0.5) * 20
-                );
-                particlesGroup.add(ball);
-            }
-
-            scene.add(particlesGroup);
-
-            const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
-            const sphereMaterial = new THREE.MeshStandardMaterial({
-                color: 0xff6600,
-                emissive: 0xffff00,
-                emissiveIntensity: 2.0,
+            const barrier = new THREE.Mesh(barrierGeometry, barrierMaterial);
+            barrier.rotation.y = Math.PI / 2;
+            barrier.position.y = -0.5;
+            barrierGroup.add(barrier);
+            
+            // Partículas representando prótons (bolinhas vermelhas)
+            const particleCount = 20;
+            const particleGeometry = new THREE.SphereGeometry(0.15, 8, 8);
+            const particleMaterial = new THREE.MeshStandardMaterial({
+                color: 0xDC143C,
+                emissive: 0xFF0000,
+                emissiveIntensity: 0.5,
                 metalness: 0.8,
                 roughness: 0.2
             });
-            const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-            scene.add(sphere);
-
-            for(let i = 0; i < 3; i++) {
-                const ringGeometry = new THREE.RingGeometry(1.5 + i * 0.8, 1.6 + i * 0.8, 64);
-                const ringMaterial = new THREE.MeshBasicMaterial({
-                    color: colors[i % colors.length],
-                    side: THREE.DoubleSide,
-                    transparent: true,
-                    opacity: 0.9
-                });
-                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-                ring.rotation.x = Math.PI / 2;
-                ring.rotation.y = i * Math.PI / 3;
-                scene.add(ring);
+            
+            const particles = [];
+            for(let i = 0; i < particleCount; i++) {
+                const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+                particle.position.set(
+                    (Math.random() - 0.5) * 10,
+                    Math.random() * 3 - 1,
+                    (Math.random() - 0.5) * 2
+                );
+                particles.push(particle);
+                barrierGroup.add(particle);
             }
+            
+            scene.add(barrierGroup);
+            
+            // Túnel através da barreira (representação visual)
+            const tunnelGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.5, 16);
+            const tunnelMaterial = new THREE.MeshBasicMaterial({
+                color: 0x000000,
+                transparent: true,
+                opacity: 0.3
+            });
+            const tunnel = new THREE.Mesh(tunnelGeometry, tunnelMaterial);
+            tunnel.rotation.z = Math.PI / 2;
+            tunnel.position.set(0, 0.5, 0);
+            barrierGroup.add(tunnel);
 
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
             scene.add(ambientLight);
@@ -1078,17 +1159,17 @@
                 const z = Math.cos(rotationY) * distance;
                 camera.position.x = x;
                 camera.position.z = z;
-                camera.position.y = Math.sin(rotationX) * distance;
+                camera.position.y = Math.sin(rotationX) * distance + 1;
                 camera.lookAt(0, 0, 0);
                 
-                // Mantém rotação suave das partículas e anéis
-                particlesGroup.rotation.y += 0.001;
-                
-                scene.children.forEach((child, index) => {
-                    if(child.type === 'Mesh' && child.geometry.type === 'RingGeometry') {
-                        child.rotation.z += 0.002 * (index % 2 === 0 ? 1 : -1);
-                    }
+                // Anima as partículas (prótons) movendo-se
+                particles.forEach((particle, index) => {
+                    particle.position.x += Math.sin(Date.now() * 0.001 + index) * 0.01;
+                    particle.position.y += Math.cos(Date.now() * 0.001 + index * 0.5) * 0.005;
                 });
+                
+                // Rotação suave da barreira
+                barrierGroup.rotation.y += 0.002;
 
                 renderer.render(scene, camera);
             }
@@ -1101,9 +1182,37 @@
 
             animate();
         }
+
+        // Contador de visitas
+        function updateVisitCount() {
+            let visitCount = localStorage.getItem('siteVisitCount');
+            if (!visitCount) {
+                visitCount = 0;
+            }
+            visitCount = parseInt(visitCount) + 1;
+            localStorage.setItem('siteVisitCount', visitCount);
+            
+            const visitCountElement = document.getElementById('visitCount');
+            if (visitCountElement) {
+                // Animação de contagem
+                let current = 0;
+                const target = visitCount;
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    visitCountElement.textContent = Math.floor(current).toLocaleString('pt-BR');
+                }, 16);
+            }
+        }
+        
+        // Atualiza contador ao carregar a página
+        updateVisitCount();
     </script>
 </body>
 </html>
-
-
-
