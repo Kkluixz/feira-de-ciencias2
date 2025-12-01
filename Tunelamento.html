@@ -1038,30 +1038,38 @@
             barrier.position.y = -0.5;
             barrierGroup.add(barrier);
             
-            // Partículas representando prótons (bolinhas vermelhas)
-            const particleCount = 20;
-            const particleGeometry = new THREE.SphereGeometry(0.15, 8, 8);
-            const particleMaterial = new THREE.MeshStandardMaterial({
-                color: 0xDC143C,
-                emissive: 0xFF0000,
-                emissiveIntensity: 0.5,
-                metalness: 0.8,
-                roughness: 0.2
-            });
-            
-            const particles = [];
-            for(let i = 0; i < particleCount; i++) {
-                const particle = new THREE.Mesh(particleGeometry, particleMaterial);
-                particle.position.set(
-                    (Math.random() - 0.5) * 10,
-                    Math.random() * 3 - 1,
-                    (Math.random() - 0.5) * 2
-                );
-                particles.push(particle);
-                barrierGroup.add(particle);
-            }
-            
+            // Grupo principal da barreira
             scene.add(barrierGroup);
+
+            // Representação ondulatória (onda de probabilidade)
+            // Agora a onda é filha da barreira, para acompanhar seu movimento/rotação
+            const waveGroup = new THREE.Group();
+            barrierGroup.add(waveGroup);
+
+            // Cria uma "onda" como uma linha de muitos pontos, simulando o comportamento ondulatório
+            const waveLength = 12;              // comprimento total mostrado
+            const sampleCount = 400;            // quantidade de pontos da linha
+            const waveAmplitude = 0.6;          // amplitude máxima da onda
+            const k = 1.5;                      // número de onda (define o comprimento de onda)
+            const omega = 1.5;                  // frequência angular (velocidade de oscilação, menor para ficar mais estável)
+
+            const wavePoints = [];
+            for (let i = 0; i <= sampleCount; i++) {
+                const x = -6 + (i / sampleCount) * waveLength; // de -6 até +6
+                const y = 0;
+                const z = 0.1; // levemente acima da base
+                wavePoints.push(new THREE.Vector3(x, y, z));
+            }
+
+            const waveGeometry = new THREE.BufferGeometry().setFromPoints(wavePoints);
+            const waveMaterial = new THREE.LineBasicMaterial({
+                color: 0x00ffff,
+                transparent: true,
+                opacity: 0.9
+            });
+
+            const waveLine = new THREE.Line(waveGeometry, waveMaterial);
+            waveGroup.add(waveLine);
             
             // Túnel através da barreira (representação visual)
             const tunnelGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.5, 16);
@@ -1157,7 +1165,7 @@
 
             function animate() {
                 requestAnimationFrame(animate);
-                
+
                 // Aplica rotação controlável pela câmera
                 const x = Math.sin(rotationY) * distance;
                 const z = Math.cos(rotationY) * distance;
@@ -1165,15 +1173,47 @@
                 camera.position.z = z;
                 camera.position.y = Math.sin(rotationX) * distance + 1;
                 camera.lookAt(0, 0, 0);
-                
-                // Anima as partículas (prótons) movendo-se
-                particles.forEach((particle, index) => {
-                    particle.position.x += Math.sin(Date.now() * 0.001 + index) * 0.01;
-                    particle.position.y += Math.cos(Date.now() * 0.001 + index * 0.5) * 0.005;
-                });
-                
-                // Rotação suave da barreira
-                barrierGroup.rotation.y += 0.002;
+
+                // Anima a onda quântica (comportamento ondulatório)
+                const positions = waveGeometry.attributes.position;
+                const time = performance.now() * 0.001;
+
+                // Parâmetros da barreira em coordenadas locais da onda
+                const barrierStart = -3.0;
+                const barrierEnd = 3.0;
+                const transmittedAmplitude = 0.4;
+
+                for (let i = 0; i < positions.count; i++) {
+                    const px = positions.getX(i);
+
+                    // Onda de probabilidade se propagando para a direita:
+                    // ψ(x, t) ~ A(x) · sen(kx - ωt)
+                    const phase = k * px - omega * time;
+
+                    // Envoltória SUAVE para o tunelamento:
+                    // - Região I (x < -3): amplitude ≈ 1 (onda incidente)
+                    // - Região II (-3 ≤ x ≤ 3): transição suave 1 → transmittedAmplitude
+                    // - Região III (x > 3): amplitude constante transmittedAmplitude
+                    let envelope = 1.0;
+
+                    if (px >= barrierStart && px <= barrierEnd) {
+                        // Normaliza x dentro da barreira para [0, 1]
+                        const s = (px - barrierStart) / (barrierEnd - barrierStart);
+                        // Curva smoothstep cúbica: 3s² - 2s³ (suave nas bordas)
+                        const smooth = 3 * s * s - 2 * s * s * s;
+                        // Interpola de 1 até transmittedAmplitude sem “quebra”
+                        envelope = 1 + (transmittedAmplitude - 1) * smooth;
+                    } else if (px > barrierEnd) {
+                        envelope = transmittedAmplitude;
+                    }
+
+                    const py = Math.sin(phase) * waveAmplitude * envelope;
+                    positions.setY(i, py);
+                }
+                positions.needsUpdate = true;
+
+                // Rotação suave da barreira para dar dinamismo visual leve
+                barrierGroup.rotation.y += 0.0015;
 
                 renderer.render(scene, camera);
             }
@@ -1220,6 +1260,3 @@
     </script>
 </body>
 </html>
-
-
-
